@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="ISO-8859-1">
+    <title>Demo: Leaflet.CountrySelect</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css"/>
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script src="Leaflet.CountrySelect.js"></script>
+    <script src="./leaflet.ajax.min.js"></script>
+  </head>
+	
+  <style>
+    html, body, #map {
+      padding:0px;
+      margin:0px;
+      height:500px;
+      width:700px;
+    }
+  </style>
+	
+  <script>
+    function init(){			
+      var baseLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      });
+
+      var latitude = 19.612606725040024;
+      var longitude = -155.52124099048822;
+
+      var map = L.map("map",{layers: [baseLayer], center: [latitude, longitude], zoom: 9});
+      var select = L.countrySelect();
+
+      select.addTo(map);
+			
+      select.on('change', function(e){
+        if (e.feature === undefined){ //Do nothing on title
+        }
+        var country = L.geoJson(e.feature);
+        if (this.previousCountry != null){
+          map.removeLayer(this.previousCountry);
+        }
+        this.previousCountry = country;
+
+        map.addLayer(country);
+        map.fitBounds(country.getBounds());
+				
+      });
+    }
+
+      
+  </script>
+
+  <body onload="init()">
+    <div id="map"></div>
+    <script>
+      
+    </script>
+  </body>
+</html>

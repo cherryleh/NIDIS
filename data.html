@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link rel = "stylesheet" type = "text/css" href = "data.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script>
+            $(function(){
+            $("#header-template").load("header.html");
+            $("#footer-template").load("footer.html");
+            });
+            
+        </script>
+    </head>
+    <body>
+        <div id="header-template">Header</div>
+
+        <div class="data">
+            <p>Palani Ranch</p>
+            
+            <div class="dropdown">
+                <label for="data">Select data:</label>
+
+                <select name="data" id="data">
+                  <option value="Rainfall">Rainfall</option>
+                  <option value="saab">NDVI</option>
+                  <option value="mercedes">Evapotranspiration</option>
+                </select>
+            </div>
+
+            <div id="plot" style=" width: 800px; height: 600px; margin: auto;"></div>
+            <script>
+                const CSV = "../et_df.csv"
+
+                function plotFromCSV() {
+                    Plotly.d3.csv(CSV, function(err, rows) {
+                        console.log(rows);
+                        processData(rows);
+                    });
+                }
+
+                function processData(allRows) {
+                    let x = [];
+                    let y1 = [];
+                    let row;
+                    let i = 0;
+                    while (i < allRows.length) {
+                        row = allRows[i];
+                        x.push(row["datetime"]);
+                        y1.push(row["ET"]);
+                        i += 1;
+                    }
+            
+                    console.log("X", x);
+                    console.log("Y1", y1);
+                    makePlotly(x, y1,);
+                }
+
+                var selectorOptions = {
+                    buttons: [{
+                        step: 'month',
+                        stepmode: 'backward',
+                        count: 1,
+                        label: '1m'
+                    }, {
+                        step: 'month',
+                        stepmode: 'backward',
+                        count: 6,
+                        label: '6m'
+                    }, {
+                        step: 'year',
+                        stepmode: 'todate',
+                        count: 1,
+                        label: 'YTD'
+                    }, {
+                        step: 'year',
+                        stepmode: 'backward',
+                        count: 1,
+                        label: '1y'
+                    }, {
+                        step: 'all',
+                    }],
+                };
+
+                function makePlotly(x, y1) {
+                    let traces = [
+                        {
+                            x: x,
+                            y: y1,
+                            name: "Evapotranspiration",
+                            hovertemplate: 'Evapotranspiration: %{y}<extra></extra>',
+                            line: {
+                                color: "#387fba",
+                                width: 3
+                            }
+                        
+                        }
+                    ];
+                    let layout = {
+                        title: "Evapotranspiration",
+                        yaxis: {
+                            range: [-10, 80]
+                        },
+                        xaxis: {
+                            rangeselector: selectorOptions,
+                            rangeslider: {}
+                        },
+                    };
+                    let config = { 
+                        responsive: true,
+                        displayModeBar: true,
+                    };
+
+                
+
+                    Plotly.newPlot("plot", traces, layout, config);
+                }
+                plotFromCSV();
+
+
+            </script>
+            
+        </div>
+        <div id="footer-template">Footer</div>
+
+
+    </body>
+</html>

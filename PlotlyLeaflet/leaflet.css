@@ -1,0 +1,25 @@
+#map {
+    width: 700px; 
+    height: 500px; 
+    margin: auto;
+    text-align: center;
+}
+
+.leaflet-popup-content{
+    font: 14pt helvetica;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    border-color: black;
+}
+
+.leaflet-popup-content-wrapper {
+    border-width: 1px;
+    border-style: solid;
+}
+
+.leaflet-popup-tip-container {
+    margin-top: -3px;
+    height: 23px;
+}

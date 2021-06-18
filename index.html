@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link rel = "stylesheet" type = "text/css" href = "index.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script>
+            $(function(){
+            $("#header-template").load("header.html");
+            $("#footer-template").load("footer.html");
+            $("#leaflet").load("leaflet.html");
+            });
+            
+        </script>
+    </head>
+    <body>
+        <div id="header-template">Header</div>
+        
+        <div id="footer-template">Footer</div>
+
+        <div class="image">
+            <img src = "ParkerRanch.jpeg">
+        </div>
+
+    </body>
+</html>
