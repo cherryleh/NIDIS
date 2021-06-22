@@ -9,7 +9,7 @@ $(document).ready(function () {
     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   ).addTo(map);
 
-  const windSpeedUrl = "ET_Feb.tif";
+  const windSpeedUrl = "../Geotiff/ET_Feb.tif";
   // const windSpeedUrl =
   //   "https://danwild.github.io/leaflet-geotiff-2/wind_speed.tif";
 
