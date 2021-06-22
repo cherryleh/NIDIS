@@ -6,11 +6,18 @@ body {
   padding: 0;
 }
 
+.ET{
+  width: 100%;
+  background-color: aquamarine;
+  text-align: center;
+  padding-top: 10px;
+}
+
 #map {
-  z-index: 0;
-  float: left;
+  text-align: center;
   height: 500px;
   width: 700px;
   background-color: #333;
+  margin: auto;
 }
 
