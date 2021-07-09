@@ -9,12 +9,12 @@ $(document).ready(function () {
     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   ).addTo(map);
 
-  const ET = "../Geotiff/ET_Feb.tif";
+  const ET = "../Geotiff/NDVI_Feb.tif";
 
 
   const plottyRenderer = L.LeafletGeotiff.plotty({
-    displayMin: 11,
-    displayMax: 50,
+    displayMin: -1,
+    displayMax: 1,
     clampLow: false,
     clampHigh: false,
   });
