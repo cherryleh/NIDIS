@@ -7,3 +7,16 @@ body {
 .image img{
     width: 100%;
 }
+
+#subcategory{
+    text-align: center;
+    font-weight: bold;
+}
+
+.statewide-info{
+    justify-content: center;
+}
+
+.dropdown{
+    text-align: center;
+}
