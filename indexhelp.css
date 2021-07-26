@@ -15,7 +15,7 @@ html, body {
     flex-grow: 1;
 }
   
-.main{
+.main, .footer {
     flex-shrink: 0;
 }
   
@@ -41,6 +41,37 @@ html, body {
     padding-top: 30px; 
 }
 
-.islimage{
+.footer {
+    background-color: #e7ecef;
+    width: 100%;
+    height: 100px;
+    bottom: 0;
     text-align: center;
+    padding-top: 10px;
+}
+
+.footercontent a {
+    width: 100%;
+    height: 90px;
+    text-decoration: none;
+    color: #000;
+}
+
+.footercontent hr{
+    margin-top: 10px;
+    width: 300px;
+}
+
+.footercontent p{
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 12px;
+}
+
+
+@media (max-width: 600px){
+    .footer p{
+        left:100px;
+    }
 }

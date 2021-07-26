@@ -2,25 +2,68 @@
 <html>
     <head>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-        <link rel = "stylesheet" type = "text/css" href = "index.css">
-    <!--<link rel="stylesheet" type="text/css" href="./Header/header.css">
-        <link rel="stylesheet" type="text/css" href="./Footer/footer.css">-->
+        <link rel = "stylesheet" type = "text/css" href = "indexhelp.css">
+        <!--<link rel="stylesheet" type="text/css" href="./footertest.css">-->
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         <script>
             $(function(){
-            $("#header").load("/Users/cherryleheu/Documents/GitHub/NIDIS/Header/header.html");
-            $("#footer").load("./Footer/footer.html");
+            $("#header").load("./header.html");
             });
             
         </script>
     </head>
     <body>
-        <div id="header">Header</div>
-        <div id="footer">Footer</div>
+            <div id="header">Header</div>
+            <div class="content">
+                <div class="main">
+                  <div class="image">
+                    <img src = "ParkerRanch.jpeg">
+                </div>
 
-        <div class="image">
-            <img src = "ParkerRanch.jpeg">
-        </div>
+                <p id="subcategory">Statewide Conditions</p>
+
+                <figure class="statewide-info" style="display:flex">
+                    <img style="height:50%;" src="./gauge.png">
+                    <div>
+                        <img style="width: 500px; height: auto; " src="http://droughtmonitor.unl.edu/data/jpg/current/current_hi_trd.jpg">
+                        <p style="padding-right: 0;">Source: National Drought Mitigation Center (NDMC)</p>
+                    </div>
+                </figure>
+                <p id="subcategory">Site-specific Conditions</p>
+
+                <p style="text-align: center;">Select a ranch from the list below or select from the map to view ranch-specific weather data and maps.</p>
+                <div class=dropdown>
+                    <select id="island-select">
+                        <option value="Select">Select an island</option>
+                        <option value="Hawaii">Hawai‘i</option>
+                        <option value="Maui">Maui</option>
+                        <option value="Oahu">O‘ahu</option>
+                        <option value="Molokai">Moloka‘i</option>
+                    </select>
+                </div>
+
+                <div class="islimage">
+                    <img id="myImage" src="HI.png" alt="Workplace" usemap="#HI">
+
+                    <map name="HI">
+                        <area shape="rect" coords="286,244,375,143" alt="Hawaii" href="#">
+                        <area shape="rect" coords="251,98,299,130" alt="Maui" href="#">
+                        <area shape="rect" coords="210,81,250,98" alt="Molokai" href="#">
+                        <area shape="rect" coords="193,87,148,51" alt="Oahu" href="#">
+                        <area shape="rect" coords="53,13,89,43" alt="Kauai" href="#">
+                    </map>
+                </div>
+                </main>
+                
+                <div class="footer">
+                  <div class="footercontent">
+                        <a href="#">Contact Us</a>
+                        <a href="#">Drought.gov</a>
+                    <hr>
+                        <p>Disclaimer: We cannot be liable for omissions and inaccuracies. Please do not sue us if we are wrong.</p>
+                  </div>
+                </div>
+            </div>
 
     </body>
 </html>
