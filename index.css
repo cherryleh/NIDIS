@@ -32,15 +32,31 @@ html, body {
     justify-content: center;
 }
 
-.dropdown{
+.sitespecific{
     text-align: center;
 }
 
-.HIstate{
-    text-align: center; 
-    padding-top: 30px; 
+#island-select{
+    width: 300px;
+    font-size: 16px;
 }
 
-.islimage{
-    text-align: center;
+#showSel{
+    display: inline;
+}
+
+#showSel p{
+    margin-top: 400px;
+}
+
+.myDiv{
+    display:none;
+    text-align:center;
+}  
+
+#showHI #myImage{
+    border: none;
+    height: auto;
+    max-width: 100%;
+    width: auto;
 }

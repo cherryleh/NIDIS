@@ -4,7 +4,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
         <link rel = "stylesheet" type = "text/css" href = "./index.css">
         <link rel="stylesheet" type="text/css" href="./footer.css">
-        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
             $(function(){
             $("#header").load("/NIDIS/header.html");
@@ -37,20 +37,61 @@
                 <p id="subcategory">Site-specific Conditions</p>
 
                 <p style="text-align: center;">Select a ranch from the list below or select from the map to view ranch-specific weather data and maps.</p>
-                <div class=dropdown>
-                    <select id="island-select">
-                        <option value="Select">Select an island</option>
-                        <option value="Hawaii">Hawai‘i</option>
-                        <option value="Maui">Maui</option>
-                        <option value="Oahu">O‘ahu</option>
-                        <option value="Molokai">Moloka‘i</option>
-                    </select>
+                <select id="island-select">
+
+                    <option value="Sel">Select an island</option>
+                    <option value="HI">Hawai‘i Island</option>
+                    <option value="Maui">Maui</option>
+                    <option value="Lanai">Lanai</option>
+                    <option value="Molokai">Moloka‘i</option>
+                    <option value="Oahu">O‘ahu</option>                        
+                    <option value="Kauai">Kauai</option>
+
+                </select>
+                
+                <div id="showSel" class="myDiv">
+                    <p></p>
+                    
                 </div>
 
-                <div class="islimage">
-                    <img id="myImage" src="HI.png" alt="Workplace" usemap="#HI">
+                <div id="showHI" class="myDiv">
+                    <img id="myImage" src="./islands/HIisl.png" alt="Hawai‘i" usemap="#HI">
+
+                    <map name="HI">
+                        <area shape="rect" coords="127,16,143,31" alt="a" href="./imagemap.html">
+                        <area shape="rect" coords="88,246,106,261" alt="Palani" href="#">
+                    </map>
                 </div>
+
+                <div id="showMaui" class="myDiv">
+                    <img src="./islands/maui.png" alt="Maui"/>
+                </div>
+                <div id="showLanai" class="myDiv">
+                    <img src="./islands/lanai.png" alt="Lanai"/>
+                </div>
+                <div id="showMolokai" class="myDiv">
+                    <img src="./islands/molokai.png" alt="Moloka‘i"/>
+                </div>
+                <div id="showOahu" class="myDiv">
+                    <img src="./islands/oahu.png" alt="O‘ahu"/>
+                </div>
+                <div id="showKauai" class="myDiv">
+                    <img src="./islands/kauai.png" alt="Kauai"/>
+                </div>
+                <script src="jquery.rwdImageMaps.min.js"></script>
+                <script>
+                    $(document).ready(function(){
+                        $('#island-select').on('change', function(){
+                            var islvalue = $(this).val(); 
+                            $("div.myDiv").hide();
+                            $("#show"+islvalue).show();
+                        });
+                        $('img[usemap]').rwdImageMaps();
+                    });
+                </script>
             </div>
+            
+
         </div>
 
         <div id="footer">Footer</div>
