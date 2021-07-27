@@ -54,13 +54,61 @@
                     
                 </div>
 
-                <div id="showHI" class="myDiv">
-                    <img id="myImage" src="./islands/HIisl.png" alt="Hawai‘i" usemap="#HI">
+                <script>
+                    $(document).ready(function(){
+                        $('#island-select').on('change', function(){
+                            var islvalue = $(this).val(); 
+                            $("div.myDiv").hide();
+                            $("#show"+islvalue).show();
+                        });
+                    });
 
-                    <map name="HI">
-                        <area shape="rect" coords="127,16,143,31" alt="a" href="./imagemap.html">
-                        <area shape="rect" coords="88,246,106,261" alt="Palani" href="#">
-                    </map>
+                    $(document).ready(function(){
+                      $("input[name$='bn']").click(function(){
+                      var radio_value = $(this).val();
+                      if(radio_value=='0') {
+                        $("#nodata").show();
+                        $("#rainfall").hide();
+                        $("#evapotranspiration").hide();
+                      }
+                      else if(radio_value=='1') {
+                        $("#nodata").hide();
+                        $("#rainfall").show();
+                        $("#evapotranspiration").hide();
+                      }
+                      else if(radio_value=='2') {
+                        $("#nodata").hide();
+                        $("#rainfall").hide();
+                        $("#evapotranspiration").show();
+                       }
+                      });
+                      $('[name="bn"]:checked').trigger('click');
+                    });
+                </script>
+
+                <div id="showHI" class="myDiv">
+                    <input type="radio" name="bn" value="0"  checked="checked" /> No Data
+                      <input type="radio" name="bn" value="1" /> Rainfall
+                      <input type="radio" name="bn" value="2"/> Evapotranspiration
+
+                      <div id="nodata">
+                        <img id="a" src="./islands/no_data_hi.png" usemap="#HI">
+
+                        <map name="HI">
+                            <area shape="rect" coords="257,34,275,51" alt="a" href="./imagemap.html">
+                            <area shape="rect" coords="222,243,240,263" alt="Palani" href="#">
+                        </map>
+                      </div>
+
+                      <div id="rainfall" style="padding-top: 200px; padding-bottom: 200px;">Coming Soon</div>
+
+                      <div id="evapotranspiration">
+                        <img id="a" src="./islands/ET_Hi.png" usemap="#ET">
+
+                        <map name="ET">
+                            <area shape="rect" coords="257,34,275,51" alt="a" href="./imagemap.html">
+                            <area shape="rect" coords="222,243,240,263" alt="Palani" href="#">
+                        </map>
                 </div>
 
                 <div id="showMaui" class="myDiv">
@@ -78,17 +126,7 @@
                 <div id="showKauai" class="myDiv">
                     <img src="./islands/kauai.png" alt="Kauai"/>
                 </div>
-                <script src="jquery.rwdImageMaps.min.js"></script>
-                <script>
-                    $(document).ready(function(){
-                        $('#island-select').on('change', function(){
-                            var islvalue = $(this).val(); 
-                            $("div.myDiv").hide();
-                            $("#show"+islvalue).show();
-                        });
-                        $('img[usemap]').rwdImageMaps();
-                    });
-                </script>
+
             </div>
             
 
