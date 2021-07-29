@@ -55,6 +55,7 @@
                 </div>
 
                 <script>
+                    /* Dropdown to select island and display map*/
                     $(document).ready(function(){
                         $('#island-select').on('change', function(){
                             var islvalue = $(this).val(); 
@@ -63,6 +64,7 @@
                         });
                     });
 
+                    /*Radio buttons to display different raster data on island*/
                     $(document).ready(function(){
                       $("input[name$='bn']").click(function(){
                       var radio_value = $(this).val();
