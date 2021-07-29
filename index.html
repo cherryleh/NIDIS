@@ -56,11 +56,23 @@
 
                 <script>
                     /* Dropdown to select island and display map*/
-                    $(document).ready(function(){
+                    /*$(document).ready(function(){
                         $('#island-select').on('change', function(){
                             var islvalue = $(this).val(); 
                             $("div.myDiv").hide();
                             $("#show"+islvalue).show();
+                        });
+                    });*/
+
+                    $(document).ready(function(){
+                        $('#island-select').on('change', function(){
+                            var islvalue = $(this).val();
+                            window.currentIsl = islvalue; 
+                            $("div.myDiv").hide();
+                            $("#show"+islvalue).show();
+                            
+                            console.log($("#form-no-data"))
+                            $("#form-no-data").trigger('click');
                         });
                     });
 
@@ -68,20 +80,22 @@
                     $(document).ready(function(){
                       $("input[name$='bn']").click(function(){
                       var radio_value = $(this).val();
-                      if(radio_value=='0') {
-                        $("#nodata").show();
-                        $("#rainfall").hide();
-                        $("#evapotranspiration").hide();
+                      var isl_value = $('#island-select option:selected')[0].value;
+                      console.log(isl_value)
+                        if(radio_value=='0') {
+                        $("#nodata"+isl_value).show();
+                        $("#rainfall"+isl_value).hide();
+                        $("#evapotranspiration"+isl_value).hide();
                       }
                       else if(radio_value=='1') {
-                        $("#nodata").hide();
-                        $("#rainfall").show();
-                        $("#evapotranspiration").hide();
+                        $("#nodata"+isl_value).hide();
+                        $("#rainfall"+isl_value).show();
+                        $("#evapotranspiration"+isl_value).hide();
                       }
                       else if(radio_value=='2') {
-                        $("#nodata").hide();
-                        $("#rainfall").hide();
-                        $("#evapotranspiration").show();
+                        $("#nodata"+isl_value).hide();
+                        $("#rainfall"+isl_value).hide();
+                        $("#evapotranspiration"+isl_value).show();
                        }
                       });
                       $('[name="bn"]:checked').trigger('click');
@@ -89,11 +103,12 @@
                 </script>
 
                 <div id="showHI" class="myDiv">
-                    <input type="radio" name="bn" value="0"  checked="checked" /> No Data
-                      <input type="radio" name="bn" value="1" /> Rainfall
-                      <input type="radio" name="bn" value="2"/> Evapotranspiration
-
-                      <div id="nodata">
+                    <form>
+                      <input type="radio" name="bn" value="0"  checked="checked" id="form-no-data"/> No Data
+                      <input type="radio" name="bn" value="1" id="form-rain-fall"/> Rainfall
+                      <input type="radio" name="bn" value="2" id="form-evapo"/> Evapotranspiration
+                    </form>
+                      <div id="nodataHI">
                         <img id="a" src="./islands/no_data_hi.png" usemap="#HI">
 
                         <map name="HI">
@@ -102,23 +117,72 @@
                         </map>
                       </div>
 
-                      <div id="rainfall" style="padding-top: 200px; padding-bottom: 200px;">Coming Soon</div>
+                      <div id="rainfallHI" style="padding-top: 200px; padding-bottom: 200px;">Coming Soon</div>
 
-                      <div id="evapotranspiration">
+                      <div id="evapotranspirationHI">
                         <img id="a" src="./islands/ET_Hi.png" usemap="#ET">
 
                         <map name="ET">
                             <area shape="rect" coords="257,34,275,51" alt="a" href="./imagemap.html">
                             <area shape="rect" coords="222,243,240,263" alt="Palani" href="#">
                         </map>
+                      </div>
                 </div>
 
                 <div id="showMaui" class="myDiv">
-                    <img src="./islands/maui.png" alt="Maui"/>
+                    <input type="radio" name="bn" value="0"  checked="checked" /> No Data
+                      <input type="radio" name="bn" value="1" /> Rainfall
+                      <input type="radio" name="bn" value="2"/> Evapotranspiration
+
+                      <div id="nodataMaui">
+                        <img id="a" src="./islands/no_data_hi.png" usemap="#HI">
+
+                        <map name="HI">
+                            <area shape="rect" coords="257,34,275,51" alt="a" href="./imagemap.html">
+                            <area shape="rect" coords="222,243,240,263" alt="Palani" href="#">
+                        </map>
+                      </div>
+
+                      <div id="rainfallMaui" style="padding-top: 200px; padding-bottom: 200px;">Coming Soon</div>
+
+                      <div id="evapotranspirationMaui">
+                        <img id="a" src="./islands/ET_Hi.png" usemap="#ET">
+
+                        <map name="ET">
+                            <area shape="rect" coords="257,34,275,51" alt="a" href="./imagemap.html">
+                            <area shape="rect" coords="222,243,240,263" alt="Palani" href="#">
+                        </map>
+                      </div>
+                    
                 </div>
+
                 <div id="showLanai" class="myDiv">
-                    <img src="./islands/lanai.png" alt="Lanai"/>
+                    <input type="radio" name="bn" value="0"  checked="checked" /> No Data
+                      <input type="radio" name="bn" value="1" /> Rainfall
+                      <input type="radio" name="bn" value="2"/> Evapotranspiration
+
+                      <div id="nodataLanai">
+                        <img id="a" src="./islands/no_data_hi.png" usemap="#HI">
+
+                        <map name="HI">
+                            <area shape="rect" coords="257,34,275,51" alt="a" href="./imagemap.html">
+                            <area shape="rect" coords="222,243,240,263" alt="Palani" href="#">
+                        </map>
+                      </div>
+
+                      <div id="rainfallLanai" style="padding-top: 200px; padding-bottom: 200px;">Coming Soon</div>
+
+                      <div id="evapotranspirationLanai">
+                        <img id="a" src="./islands/ET_Hi.png" usemap="#ET">
+
+                        <map name="ET">
+                            <area shape="rect" coords="257,34,275,51" alt="a" href="./imagemap.html">
+                            <area shape="rect" coords="222,243,240,263" alt="Palani" href="#">
+                        </map>
+                      </div>
+                    
                 </div>
+
                 <div id="showMolokai" class="myDiv">
                     <img src="./islands/molokai.png" alt="Moloka‘i"/>
                 </div>
