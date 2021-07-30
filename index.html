@@ -36,7 +36,7 @@
             <div class="sitespecific">
                 <p id="subcategory">Site-specific Conditions</p>
 
-                <p style="text-align: center;">Select a ranch from the list below or select from the map to view ranch-specific weather data and maps.</p>
+                <p style="text-align: center;">Select an island from the dropdown below.</p>
                 <select id="island-select">
 
                     <option value="Sel">Select an island</option>
@@ -55,15 +55,6 @@
                 </div>
 
                 <script>
-                    /* Dropdown to select island and display map*/
-                    /*$(document).ready(function(){
-                        $('#island-select').on('change', function(){
-                            var islvalue = $(this).val(); 
-                            $("div.myDiv").hide();
-                            $("#show"+islvalue).show();
-                        });
-                    });*/
-
                     $(document).ready(function(){
                         $('#island-select').on('change', function(){
                             var islvalue = $(this).val();
@@ -103,7 +94,9 @@
                 </script>
 
                 <div id="showHI" class="myDiv">
-                    <form>
+                    <p> Click on an area of interest to view site-specific data.</p>
+                    <p style="display: inline;"> Map view:</p>
+                    <form style="display: inline;">
                       <input type="radio" name="bn" value="0"  checked="checked" id="form-no-data"/> No Data
                       <input type="radio" name="bn" value="1" id="form-rain-fall"/> Rainfall
                       <input type="radio" name="bn" value="2" id="form-evapo"/> Evapotranspiration
@@ -117,7 +110,7 @@
                         </map>
                       </div>
 
-                      <div id="rainfallHI" style="padding-top: 200px; padding-bottom: 200px;">Coming Soon</div>
+                      <div id="rainfallHI" style="padding-top: 150px; padding-bottom: 200px;">Coming Soon</div>
 
                       <div id="evapotranspirationHI">
                         <img id="a" src="./islands/ET_Hi.png" usemap="#ET">
@@ -130,10 +123,11 @@
                 </div>
 
                 <div id="showMaui" class="myDiv">
-                    <input type="radio" name="bn" value="0"  checked="checked" /> No Data
-                      <input type="radio" name="bn" value="1" /> Rainfall
-                      <input type="radio" name="bn" value="2"/> Evapotranspiration
-
+                    <form>
+                        <input type="radio" name="bn" value="0"  checked="checked" /> No Data
+                        <input type="radio" name="bn" value="1" /> Rainfall
+                        <input type="radio" name="bn" value="2"/> Evapotranspiration
+                    </form>
                       <div id="nodataMaui">
                         <img id="a" src="./islands/no_data_hi.png" usemap="#HI">
 
@@ -143,7 +137,7 @@
                         </map>
                       </div>
 
-                      <div id="rainfallMaui" style="padding-top: 200px; padding-bottom: 200px;">Coming Soon</div>
+                      <div id="rainfallMaui" style="padding-top: 150px; padding-bottom: 200px;">Coming Soon</div>
 
                       <div id="evapotranspirationMaui">
                         <img id="a" src="./islands/ET_Hi.png" usemap="#ET">
@@ -157,10 +151,11 @@
                 </div>
 
                 <div id="showLanai" class="myDiv">
-                    <input type="radio" name="bn" value="0"  checked="checked" /> No Data
-                      <input type="radio" name="bn" value="1" /> Rainfall
-                      <input type="radio" name="bn" value="2"/> Evapotranspiration
-
+                    <form>
+                        <input type="radio" name="bn" value="0"  checked="checked" /> No Data
+                        <input type="radio" name="bn" value="1" /> Rainfall
+                        <input type="radio" name="bn" value="2"/> Evapotranspiration
+                    </form>
                       <div id="nodataLanai">
                         <img id="a" src="./islands/no_data_hi.png" usemap="#HI">
 
