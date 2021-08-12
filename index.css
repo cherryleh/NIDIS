@@ -66,8 +66,13 @@ html, body {
     display: inline;
 }
 
-#showSel p{
+/*#showSel p{
     margin-top: 400px;
+}*/
+
+#showSel img{
+    width: 50%;
+    height: auto;
 }
 
 .myDiv{
