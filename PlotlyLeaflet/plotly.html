@@ -5,9 +5,9 @@
     </head>
 
     <body>
-        <div id="plot" style=" width: 800px; height: 600px; margin: auto;"></div>
+        <div id="plot" style=" width: 900px; height: 500px; margin: auto;"></div>
         <script>
-            const CSV = "../et_df.csv"
+            const CSV = "et_df.csv"
 
             function plotFromCSV() {
                 Plotly.d3.csv(CSV, function(err, rows) {
